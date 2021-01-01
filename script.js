@@ -24,7 +24,7 @@ function ajout()
         return false;
         }
 
-        document.getElementById("tableau").innerHTML += "<tr><td>" + produit + "</td><td>" + qte + "</td><td>" + test + "</td></tr>";
+        document.getElementById("tableau").innerHTML += "<tr><td>" + produit + "</td><td><div contenteditable='true'>" + qte + "</div></td><td>" + test + "</td></tr>";
         document.getElementById("tableau").innerHTML += "<tr><td> </td></tr>";
         // document.getElementById("prixTotal").innerHTML += 
         
