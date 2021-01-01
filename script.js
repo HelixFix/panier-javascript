@@ -1,10 +1,30 @@
+function LignePanier (produit, qte, prix)
+{
+    this.produitArticle = produit;
+    this.qteArticle  = qte;
+    this.prixArticle = prix;
+    // this.ajouterQte  = function(qte)
+    // {
+    //     this.qteArticle += qte;
+    // }
+    // this.getPrixLigne = function()
+    // {
+    //     var resultat = this.prixArticle * this.qteArticle;
+    //     return resultat;
+    // }
+    // this.getProduit = function()
+    // {
+    //     return this.produitArticle;
+    // }
+}
+
 function ajouter()
             {
                 var produit      = (document.getElementById("produit").value);
                 var qte       = parseInt(document.getElementById("qte").value);
                 var prix      = (document.getElementById("prix").value);
-                var monPanier = new Panier();
-                monPanier.ajouterArticle(produit, qte, prix);
+                // var monPanier = new Panier();
+                // monPanier.ajouterArticle(produit, qte, prix);
                 var tableau     = document.getElementById("tableau");
                 var longueurTab = parseInt(document.getElementById("nbreLignes").innerHTML);
                 if (longueurTab > 0)
