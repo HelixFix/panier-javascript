@@ -48,5 +48,5 @@
 
     cartdata += "<tr><td></td><td></td><td></td><td>" + total + "</td></tr></table>";
 
-    document.getElementById("cart").innerHTML = cartdata;
+    document.getElementById("panier").innerHTML = cartdata;
     }
