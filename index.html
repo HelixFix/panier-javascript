@@ -10,8 +10,8 @@
 <body>
 
     <legend>TP JavaScript</legend>
-    <label class="col-lg-4">Nom du produit</label> :
-    <select name="produit" id="produit">
+    <label>Nom du produit</label> :
+    <select name="produit" id="produit" required pattern="Pomme|cerise">
         <option value="">--Choisir un produit--</option>
         <option value="Pomme">Pomme</option>
         <option value="Banane">Banane</option>
@@ -25,25 +25,23 @@
         <option value="fraise">fraise</option>
     </select>
 
-    <label class="">Quantité</label> : <input type="number" id="qte" style="width:120px" class=""></input><br><br>
-    <label class="">Prix</label> : <input type="number" id="prix" style="width:120px" class=""></input><br><br>
-    <button class="" type="submit" onclick="ajout()"><span class=""></span> Ajouter au panier</button>
+    <label>Quantité</label> : <input type="number" id="qte"></input><br><br>
+    <label>Prix</label> : <input type="number" id="prix"></input><br><br>
+    <button type="submit" onclick="ajout()"><span></span> Ajouter au panier</button>
 
-    <legend>panier</legend>
+    <legend>Panier</legend>
     <table id="tableau" class="table">
         <thead>
             <tr>
                 <th>Nom</th>
                 <th>Quantité</th>
                 <th>Prix</th>
-                <!-- <th>Prix de la ligne</th>
-                <th>Supprimer</th> -->
             </tr>
         </thead>
     </table>
 
     <br><label>Total</label> : <label id="prixTotal"></label>
-    <label id = "nbreLignes" hidden>0</label>
+  
 </body>
 
 <script type="text/javascript" src="script.js"></script>
