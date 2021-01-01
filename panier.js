@@ -1,6 +1,6 @@
-function LignePanier (code, qte, prix)
+function LignePanier (produit, qte, prix)
 {
-    this.codeArticle = code;
+    this.produitArticle = produit;
     this.qteArticle  = qte;
     this.prixArticle = prix;
     this.ajouterQte  = function(qte)
@@ -12,19 +12,19 @@ function LignePanier (code, qte, prix)
         var resultat = this.prixArticle * this.qteArticle;
         return resultat;
     }
-    this.getCode = function()
+    this.getProduit = function()
     {
-        return this.codeArticle;
+        return this.produitArticle;
     }
 }
 
 function Panier()
 {
     this.liste          = [];
-    this.ajouterArticle = function(code, qte, prix)
+    this.ajouterArticle = function(produit, qte, prix)
     { 
-        var index = this.getArticle(code);
-        if (index == -1) this.liste.push(new LignePanier(code, qte, prix));
+        var index = this.getArticle(produit);
+        if (index == -1) this.liste.push(new LignePanier(produit, qte, prix));
         else this.liste[index].ajouterQte(qte);
     }
     this.getPrixPanier = function()
@@ -34,33 +34,36 @@ function Panier()
             total += this.liste[i].getPrixLigne();
         return total;
     }
-    this.getArticle = function(code)
+    this.getArticle = function(produit)
     {
         for(var i = 0 ; i <this.liste.length ; i++)
-            if (code == this.liste[i].getCode()) return i;
+            if (produit == this.liste[i].getProduit()) return i;
         return -1;
     }
-    this.supprimerArticle = function(code)
+    this.supprimerArticle = function(produit)
     {
-        var index = this.getArticle(code);
+        var index = this.getArticle(produit);
         if (index > -1) this.liste.splice(index, 1);
     }
+
+    
 }
 
 function ajouter()
             {
-                var code      = parseInt(document.getElementById("id").value);
+                var produit      = (document.getElementById("produit").value);
                 var qte       = parseInt(document.getElementById("qte").value);
                 var prix      = parseInt(document.getElementById("prix").value);
                 var monPanier = new Panier();
-                monPanier.ajouterArticle(code, qte, prix);
+                monPanier.ajouterArticle(produit, qte, prix);
                 var tableau     = document.getElementById("tableau");
                 var longueurTab = parseInt(document.getElementById("nbreLignes").innerHTML);
                 if (longueurTab > 0)
+               
                 {
                     for(var i = longueurTab ; i > 0  ; i--)
                     {
-                        monPanier.ajouterArticle(parseInt(tableau.rows[i].cells[0].innerHTML), parseInt(tableau.rows[i].cells[1].innerHTML), parseInt(tableau.rows[i].cells[2].innerHTML));
+                        monPanier.ajouterArticle((tableau.rows[i].cells[0].innerHTML), parseInt(tableau.rows[i].cells[1].innerHTML), parseInt(tableau.rows[i].cells[2].innerHTML));
                         tableau.deleteRow(i);
                     }
                 }
@@ -70,7 +73,7 @@ function ajouter()
                     var ligne               = monPanier.liste[i];
                     var ligneTableau        = tableau.insertRow(-1);
                     var colonne1            = ligneTableau.insertCell(0);
-                        colonne1.innerHTML += ligne.getCode();
+                        colonne1.innerHTML += ligne.getProduit();
                     var colonne2            = ligneTableau.insertCell(1);
                         colonne2.innerHTML += ligne.qteArticle;
                     var colonne3            = ligneTableau.insertCell(2);
@@ -82,9 +85,11 @@ function ajouter()
                 }
                 document.getElementById("prixTotal").innerHTML  = monPanier.getPrixPanier();
                 document.getElementById("nbreLignes").innerHTML = longueur;
+
+                
             }
             
-            function supprimer(code)
+            function supprimer(produit)
             {
                 var monPanier   = new Panier();
                 var tableau     = document.getElementById("tableau");
@@ -93,18 +98,18 @@ function ajouter()
                 {
                     for(var i = longueurTab ; i > 0  ; i--)
                     {
-                        monPanier.ajouterArticle(parseInt(tableau.rows[i].cells[0].innerHTML), parseInt(tableau.rows[i].cells[1].innerHTML), parseInt(tableau.rows[i].cells[2].innerHTML));
+                        monPanier.ajouterArticle((tableau.rows[i].cells[0].innerHTML), parseInt(tableau.rows[i].cells[1].innerHTML), parseInt(tableau.rows[i].cells[2].innerHTML));
                         tableau.deleteRow(i);
                     }
                 }
-                monPanier.supprimerArticle(code);
+                monPanier.supprimerArticle(produit);
                 var longueur = monPanier.liste.length;
                 for(var i = 0 ; i < longueur ; i++)
                 {
                     var ligne               = monPanier.liste[i];
                     var ligneTableau        = tableau.insertRow(-1);
                     var colonne1            = ligneTableau.insertCell(0);
-                        colonne1.innerHTML += ligne.getCode();
+                        colonne1.innerHTML += ligne.getProduit();
                     var colonne2            = ligneTableau.insertCell(1);
                         colonne2.innerHTML += ligne.qteArticle;
                     var colonne3            = ligneTableau.insertCell(2);
@@ -117,3 +122,5 @@ function ajouter()
                 document.getElementById("prixTotal").innerHTML  = monPanier.getPrixPanier();
                 document.getElementById("nbreLignes").innerHTML = longueur;
             }
+
+            

@@ -1,9 +1,8 @@
-
 <!doctype html>
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>Panier HTML5 + JavaScript</title>
+        <title>JavaScript TP</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
    
             
@@ -13,7 +12,26 @@
         <section  class="container">
             <article class="well form-inline pull-left col-lg-5">
                 <legend>Gestion du panier</legend>
-                <label class="col-lg-4">Nom du produit</label> : <input type = "number" id = "id" style="width:120px" class="input-sm form-control"></input><br><br>
+                <label class="col-lg-4">Nom du produit</label> : 
+                <!-- <input type = "number" id = "id" style="width:120px" class="input-sm form-control">
+   
+                </input> -->
+                <select name="produit" id="produit">
+                    <option value="">--Choisir un produit--</option>
+                    <option value="Pomme">Pomme</option>
+                    <option value="Banane">Banane</option>
+                    <option value="Orange">Orange</option>
+                    <option value="Clémentine">Clémentine</option>
+                    <option value="Pêche">Pêche</option>
+                    <option value="Poire">Poire</option>
+                    <option value="Raisin">Raisin</option>
+                    <option value="Pamplemousse">Pamplemousse</option>
+                    <option value="Kiwi">Kiwi</option>
+                    <option value="fraise">fraise</option>
+                </select>
+                <br><br>
+           
+             
                 <label class="col-lg-4" >Quantité</label> : <input type = "number" id = "qte" style="width:120px" class="input-sm form-control"></input><br><br> 
                 <label class="col-lg-4">Prix</label> : <input type = "number" id = "prix" style="width:120px" class="input-sm form-control"></input><br><br>
                 <button class="btn btn-primary" type="submit" onclick="ajouter()"><span class="glyphicon glyphicon-shopping-cart"></span> Ajouter au panier</button>
