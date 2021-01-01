@@ -5,6 +5,9 @@ function ajout()
         var prix    = parseFloat(document.getElementById("prix").value);
         var total   = (prix * qte);
         var test    = total.toFixed(2)
+        // var selectElement = document.getElementById('tablePrix');
+        
+      
 
         console.log(total);
         console.log(produit);
@@ -24,9 +27,24 @@ function ajout()
         return false;
         }
 
-        document.getElementById("tableau").innerHTML += "<tr><td>" + produit + "</td><td><div contenteditable='true'>" + qte + "</div></td><td>" + test + "</td></tr>";
+        document.getElementById("tableau").innerHTML += "<tr><td>" + produit + "</td><td><div id='tablePrix' contenteditable='true'>" + qte + "</div></td ><td>" + test + "</td></tr>";
         document.getElementById("tableau").innerHTML += "<tr><td> </td></tr>";
         // document.getElementById("prixTotal").innerHTML += 
         
 
+        // const selectElement = document.getElementById('tablePrix');
+
+        // selectElement.addEventListener('change', (event) => {
+        // const result = document.querySelector('.result');
+        // result.textContent = `You like ${event.target.value}`;
+        // });
+
+        const input = document.getElementById('tablePrix');
+        const log = document.getElementById('log');
+
+        input.addEventListener('change', updateValue);
+
+        function updateValue(e) {
+        log.textContent = e.target.value;
+        }
     } 
