@@ -53,7 +53,7 @@ function ajouter()
             {
                 var produit      = (document.getElementById("produit").value);
                 var qte       = parseInt(document.getElementById("qte").value);
-                var prix      = parseInt(document.getElementById("prix").value);
+                var prix      = (document.getElementById("prix").value);
                 var monPanier = new Panier();
                 monPanier.ajouterArticle(produit, qte, prix);
                 var tableau     = document.getElementById("tableau");
