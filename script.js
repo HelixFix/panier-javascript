@@ -5,12 +5,15 @@ function ajout()
         var prix    = parseFloat(document.getElementById("prix").value);
         var total   = (prix * qte);
         var test    = total.toFixed(2)
+        
         // var selectElement = document.getElementById('tablePrix');
         
       
 
         console.log(total);
         console.log(produit);
+       
+        
 
         if (produit == "") {
             alert("Selectionne un produit, mon cher !");
@@ -32,19 +35,9 @@ function ajout()
         // document.getElementById("prixTotal").innerHTML += 
         
 
-        // const selectElement = document.getElementById('tablePrix');
 
-        // selectElement.addEventListener('change', (event) => {
-        // const result = document.querySelector('.result');
-        // result.textContent = `You like ${event.target.value}`;
-        // });
-
-        const input = document.getElementById('tablePrix');
-        const log = document.getElementById('log');
-
-        input.addEventListener('change', updateValue);
-
-        function updateValue(e) {
-        log.textContent = e.target.value;
-        }
+        
     } 
+
+
+    

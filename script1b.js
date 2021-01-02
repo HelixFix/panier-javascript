@@ -2,6 +2,9 @@
     iquantite = [];
     iprix     = [];
 
+    
+    
+
     function ajout() {
 
     var produit = document.getElementById("produit").value;
@@ -32,14 +35,28 @@
 
     total = 0;
 
+
     for (i = 0; i < iproduit.length; i++) {
         total    += iquantite[i] * iprix[i];
-        cartdata += 
-        "<tr><td>" + iproduit[i] + "</td><td contenteditable='true'>" + iquantite[i] + "</td><td>" + iprix[i] + "</td><td>" + iquantite[i] * iprix[i] + "</td></tr>";
+        cartdata += "<tr><td>" + iproduit[i] + '</td><td><textarea id="quantite" onchange=update(' + i + ')>' + iquantite[i] + "</textarea></td><td>" + iprix[i] + "</td><td>" + iquantite[i] * iprix[i] + "</td></tr>";
 
 
         console.log(iprix[i]);
+        console.log(iquantite);
+        // console.log(document.getElementById("panier").rows[0].cells.length);
     }
+
+    // for (i = 0; i < iproduit.length; i++) {
+    //     total    += iquantite[i] * iprix[i];
+    //     cartdata += "<tr><td>" + iproduit[i] + '</td><td><textarea name="quantité" onchange=('document.quantité.value = update(this.value);')>" + iquantite[i] + "</textarea></td><td>" + iprix[i] + "</td><td>" + iquantite[i] * iprix[i] + "</td></tr>";
+
+
+    //     console.log(iprix[i]);
+    //     console.log(iquantite);
+        
+        
+    //     // console.log(document.getElementById("panier").rows[0].cells.length);
+    // }
 
     console.log(total);
     
@@ -49,4 +66,39 @@
     cartdata += "<tr><td></td><td></td><td></td><td>" + total + "</td></tr></table>";
 
     document.getElementById("panier").innerHTML = cartdata;
+
+    
     }
+
+    // Recupérer la valeur de la cellule (colonne ligne) et la mettre à jour
+    
+    function update(a) {
+       
+        // alert('ok')
+
+        // iproduit.push(a, 1);
+        iquantite.splice(a, 1);
+        // iprix.push(a, 1)
+        // affichePanier();
+        // newQte.push(parseInt(document.getElementById("quantite").value));
+        newQte = parseInt(document.getElementById("quantite").value) // fonctionne
+        iquantite[i] = newQte
+        console.log('update' + newQte);
+        // console.log(document.quantite.value);
+        affichePanier();
+    }
+
+    function Update(keyValue, newKey, newValue)
+    {
+      keyValue.Key = newKey;
+      keyValue.Value = newValue; 
+    }
+
+
+
+
+    
+
+    // var newQte = date.getSeconds();
+    // document.getElementById("input").value = seconds;
+    // var x = document.getElementById("myTable").rows[0].cells.length; 
