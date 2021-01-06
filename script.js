@@ -5,7 +5,6 @@ iprix     = [];
 let numbersOnly = /^\d+$/;
 let decimalOnly = /^\d+((.|,)\d{1,2})?$/;
 
-
 function testInputData(myfield, restrictionType) {
 
  var myData = document.getElementById(myfield).value;
@@ -30,7 +29,6 @@ let qte     = document.getElementById("qte").value;
 
 console.log(qte);
 
-
 if (produit == "") {
     alert("Selectionne un produit, mon cher !");
     return false;
@@ -45,19 +43,6 @@ if (prix > 0) {
     return false;
 }
 
-  
-
-
-// if (qte > 0  ) {
-//     console.log("Quantité correct");
-// } else {
-//     // console.log(qte);
-
-//     alert("Quantité invalide");
-//     return false;
-// }
-
-// iproduit.push(document.getElementById("produit").value);
 iproduit.push(produit);
 iquantite.push(parseInt(qte));
 iprix.push(prix);
@@ -76,7 +61,7 @@ for (i = 0; i < iproduit.length; i++) {
 
     console.log(iprix[i]);
     console.log(iquantite);
-    // console.log(document.getElementById("panier").rows[0].cells.length);
+    
 }
 
 console.log(total);
@@ -87,24 +72,13 @@ document.getElementById("panier").innerHTML = cartdata;
 
 }
 
-// Recupérer la valeur de la cellule (colonne ligne) et la mettre à jour
-
 function update(i) {
 
-    // alert('ok')
-
-    // iproduit.push(a, 1);
-    // iquantite.splice(a, 1);
-    // iprix.push(a, 1)
-    // affichePanier();
-    // newQte.push(parseInt(document.getElementById("quantite").value));
     newQte       = parseInt(document.getElementById("quantite").value)  // fonctionne
     iquantite[i] = newQte
     console.log('update' + newQte);
-    // console.log(document.quantite.value);
+
     affichePanier();
-    // total[i] += iquantite * iprix;
-    // console.log(total[i]);
 
 }
 
@@ -112,5 +86,7 @@ function delElement(a){
     iproduit.splice(a, 1);
     iquantite.splice(a, 1)
     iprix.splice(a, 1)
+
     affichePanier();
+
   }
